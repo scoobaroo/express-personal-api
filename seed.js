@@ -18,6 +18,19 @@ db.Person.create(Eric, function(err, newPerson){
   if (err){
     return console.log("Error:", err);
   }
-  console.log("Created new person", person._id);
+  console.log("Created new person", newPerson._id);
   process.exit(); // we're all done! Exit the program.
+});
+
+var Boxing = {
+  name : 'Boxing',
+  years: '1'
+};
+
+db.Hobby.create(Boxing, function(err, newPet){
+  if(err){
+    return console.log("error:",err);
+  }
+  console.log("Created new hobby", newPet._id);
+  process.exit();
 });

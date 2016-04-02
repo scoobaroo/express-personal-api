@@ -4,4 +4,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                   "mongodb://localhost/personal-api");
 
 module.exports.Person = require("./person.js");
-module.exports.Pets = require("./pet.js");
+module.exports.Hobby = require("./hobby.js");

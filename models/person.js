@@ -19,8 +19,6 @@ var PersonSchema = new Schema({
 });
 
 var Person = mongoose.model('Person', PersonSchema);
-var Pet = mongoose.model('PetSchema', PetSchema);
 
-module.exports.Person = require("./pet.js");
-module.exports.Person = require("./person.js");
+// module.exports.Person = require("./person.js");
 module.exports = Person;
