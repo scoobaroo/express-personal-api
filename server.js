@@ -38,16 +38,14 @@ app.get('/', function homepage(req, res) {
  */
 
 app.get('/api', function api_index(req, res) {
-  // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/scoobaroo/express_self_api/README.md", // CHANGE ME
+    documentation_url: "https://github.com/scoobaroo/express-personal-api/blob/master/README.md", // CHANGE ME
     base_url: "https://rhubarb-pie-35184.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about Eric"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"} // CHANGE ME
     ]
   });
 });

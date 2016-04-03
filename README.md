@@ -1,4 +1,20 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal
+
+
+app.get('/api', function api_index(req, res) {
+  res.json({
+    message: "Welcome to my personal api! Here's what you need to know!",
+    documentation_url: "https://github.com/scoobaroo/express-personal-api/blob/master/README.md", // CHANGE ME
+    base_url: "https://rhubarb-pie-35184.herokuapp.com/", // CHANGE ME
+    endpoints: [
+      {method: "GET", path: "/api", description: "Describes all available endpoints"},
+      {method: "GET", path: "/api/profile", description: "Data about Eric"}, // CHANGE ME
+      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"} // CHANGE ME
+    ]
+  });
+});
+
+API - Weekend Lab
 
 Your goal is to build a API about yourself. Your API will incorporate:
 * Well-documented **JSON API** Endpoints
@@ -82,8 +98,8 @@ An example API for 'Jon Snow' might have endpoints like:
                                   github_link: "http://github.com/u-know-nothing-jon-snow",
                                   current_city: "The Wall",
                                   is_awake: false,
-                                  family_members: [ 
-                                    { name: 'Arya Stark', relationship: 'sister' }, 
+                                  family_members: [
+                                    { name: 'Arya Stark', relationship: 'sister' },
                                     { name: 'Bran Stark', relationship: 'brother' }
                                   ]
                                 }
@@ -96,7 +112,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     opponents: [ 'Mance Rayder', 'Lord of Bones'],
                                     status: 'resolved'
                                  },
-                                 { 
+                                 {
                                     _id: 3,
                                     name: 'Save the wildlings',
                                     type: 'campaign',
@@ -104,7 +120,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     status: 'pending'
                                  }
                                 ]
-    
+
     GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
 
     GET /api/projects?status=pending
