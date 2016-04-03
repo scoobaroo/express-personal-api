@@ -49,8 +49,8 @@ function getHobbyError(){
   console.log('get hobby error');
 }
 function getProfileSuccess(json){
-  console.log(json[0].github_profile_image);
-  $('.col-md-8').append(json[0].github_profile_image);
+  console.log(json[1].github_profile_image);
+  $('.col-md-8').append(json[1].github_profile_image);
 }
 function getProfileError(){
   console.log("profile get error");
