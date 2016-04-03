@@ -25,18 +25,25 @@
           <h4><a href="/api">Read My API Documentation</a></h4>
           <form class="form-inline" id="newBookForm">
             <div class="form-group">
-              <label for="name">Pet Name</label>
-              <input type="text" class="form-control" name="Name" placeholder="Pet Name">
+              <label for="name">Hobby Name</label>
+              <input type="text" id='hobbyname' class="form-control" name="name" placeholder="Hobby Name">
             </div>
             <div class="form-group">
-              <label for="type">Pet Type</label>
-              <input type="text" class="form-control" name="Type" placeholder="Pet Type">
+              <label for="type">Years Trained</label>
+              <input type="text" class="form-control" name="years" placeholder="Hobby Years">
             </div>
-            <div class="form-group">
-              <label for="type">Pet Breed</label>
-              <input type="text" class="form-control" name="Breed" placeholder="Pet Breed">
-            </div>
-            <button type="submit" class="btn btn-default">Create Pet</button>
+            <button type="submit" class="btn btn-default">Create Hobby</button>
+            <script id="hobby-template" type="text/x-handlebars-template">
+              {{#each hobby}}
+              <hr>
+              <p>
+                <b>Hobby Name</b>
+                {{name}}
+                <b>Years Trained:</b>
+                {{years}}
+              </p>
+              {{/each}}
+            </script>
           </form>
         </div>
       </div>

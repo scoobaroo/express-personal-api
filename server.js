@@ -6,7 +6,11 @@ var express = require('express'),
 // and populate the req.body object
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(function(req, res, next) {
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
 /************
  * DATABASE *
  ************/
@@ -56,23 +60,30 @@ app.get('/api/profile', function(req,res){
     });
   });
 
-  app.post('/api/pets', function (req, res) {
-    // create new book with form data (`req.body`)
-    event.preventDefault();
-    var newPet = new db.Pet({
-      name : req.body.name,
-      type : req.body.type,
-      breed : req.body.breed,
+app.get('/api/hobbies', function(req,res){
+  db.Hobby.find()
+    .exec(function(err, hobby) {
+      if (err) { return console.log("index error: " + err); }
+      res.json(hobby);
     });
-      newPet.save(function(err, newPet){
-        if (err) {
-          return console.log("save error: " + err);
-        }
-        console.log("saved ", pet.name);
-        // send back the book!
-        res.json(pet);
-      });
+  });
+
+app.post('/api/hobbies', function (req, res) {
+  // create new book with form data (`req.body`)
+  console.log(req.body.name,req.body.years);
+  var newHobby = new db.Hobby({
+    name : req.body.name,
+    years : req.body.years
+  });
+    newHobby.save(function(err, newHobby){
+      if (err) {
+        return console.log("save error: " + err);
+      }
+      console.log("saved ", newHobby.name);
+      // send back the book!
+      res.json(newHobby);
     });
+  });
 
 /**********
  * SERVER *
