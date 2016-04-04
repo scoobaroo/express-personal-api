@@ -4,12 +4,12 @@
 app.get('/api', function api_index(req, res) {
   res.json({
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/scoobaroo/express-personal-api/blob/master/README.md", // CHANGE ME
-    base_url: "https://rhubarb-pie-35184.herokuapp.com/", // CHANGE ME
+    documentation_url: "https://github.com/scoobaroo/express-personal-api/blob/master/README.md",
+    base_url: "https://rhubarb-pie-35184.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about Eric"}, // CHANGE ME
-      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about Eric"},
+      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"}
     ]
   });
 });

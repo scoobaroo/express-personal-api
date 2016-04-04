@@ -44,8 +44,10 @@ app.get('/api', function api_index(req, res) {
     base_url: "https://rhubarb-pie-35184.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about Eric"}, // CHANGE ME
-      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about Eric"},
+      {method: "GET", path: "/api/hobbies", description: "List of Eric's hobbies!"},
+      {method: "POST", path: "/api/hobbies", description: "List of hobbies or create one for me!"},
+      {method: "DELETE", path: "/api/hobbies/:id", description: "delete a hobby for me!"}
     ]
   });
 });
@@ -82,6 +84,16 @@ app.post('/api/hobbies', function (req, res) {
       res.json(newHobby);
     });
   });
+
+app.delete('/api/hobbies/:id', function (req, res) {
+  // get book id from url params (`req.params`)
+  console.log('books delete', req.params);
+  var hobbyId = req.params.id;
+  // find the index of the book we want to remove
+  db.Hobby.findOneAndRemove({ _id: hobbyId }, function (err, deletedHobby) {
+    res.json(deletedHobby);
+  });
+});
 
 /**********
  * SERVER *

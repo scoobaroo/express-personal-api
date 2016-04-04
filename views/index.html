@@ -33,17 +33,20 @@
               <input type="text" class="form-control" name="years" placeholder="Hobby Years">
             </div>
             <button type="submit" class="btn btn-default">Create Hobby</button>
-            <script id="hobby-template" type="text/x-handlebars-template">
-              {{#each hobby}}
-              <hr>
-              <p>
-                <b>Hobby Name</b>
-                {{name}}
-                <b>Years Trained:</b>
-                {{years}}
-              </p>
-              {{/each}}
-            </script>
+            <div id=hobbyTarget>
+              <script id="hobby-template" type="text/x-handlebars-template">
+                {{#each hobby}}
+                <hr>
+                <p>
+                  <b>Hobby Name</b>
+                  {{name}}
+                  <b>Years Trained:</b>
+                  {{years}}
+                  <button type="button" id='deleteHobby1' class="deleteHobby btn btn-danger" name="hobbyId" data-hobbyId={{_id}}>Delete hobby</button>
+                </p>
+                {{/each}}
+              </script>
+            </div>
           </form>
         </div>
       </div>
